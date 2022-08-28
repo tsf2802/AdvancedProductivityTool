@@ -1,0 +1,4 @@
+Installing programs:
+PostgreSQL 14.53 for Python 3.9, Create New Database in pgAdmin called 'genshin'
+pip install pyqt5 22.2.1
+pip install psycopg2 
