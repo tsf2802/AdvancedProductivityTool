@@ -2,6 +2,8 @@ All Installation Requirements for Project:
 PostgreSQL 14.53 for Python 3.9, Create New Database in pgAdmin called 'genshin', set db password to 'dbpass'
 pip install pyqt5 22.2.1
 pip install psycopg2 
+pip install pandas
+pip install plotly
 
 Notes:
 MySQL only works for older versions of vs code (2019) so I decided to learn PostgresSQL but within python its behavior is essentially the same.

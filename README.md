@@ -9,7 +9,7 @@ This application hopes to help the player by being a  list of all the long term/
 
 Other plans for the project in the future would be implementing:
 
-Character Priority: (to identif what characters you want, a pity tracker for banners, and a counter for the last time a character got run on a banner)
+Character Priority: (to identify what characters you want, a pity tracker for banners, and a counter for the last time a character got run on a banner)
 Who to work on friendship with
 Easy database updating for banner reruns/new charachters 
 Gantt chart timeline for last time chgarachter run
