@@ -13,7 +13,6 @@ def main():
     banners = dbcursor.fetchall()
     df = []
     for i in banners:
-        
         listadd = dict(Task=i[1], Start=i[5], Finish=i[6], Charachter= i[1])
         listaddtwo = dict(Task=i[2], Start=i[5], Finish=i[6], Charachter= i[2])
         listaddthree = dict(Task=i[3], Start=i[5], Finish=i[6], Charachter= i[3])

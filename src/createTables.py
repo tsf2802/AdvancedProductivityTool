@@ -1,22 +1,27 @@
 import psycopg2
 import csv
-
+#CreateTables is a python file that initializes all the required tables for the program to run.
+#This is required to setup the databse for the other components of the program.
+#It only has to be ran once and running it again will refresh all the previous data.
 def main():
-    conn = psycopg2.connect(host="localhost",database="genshin",user="postgres",password="dbpass")
-    cursor = conn.cursor()
-    #createTask(cursor)
-    createBanner(cursor)
-    createCharachters(cursor)
-    conn.commit()
-    conn.close() 
+    confirmation = input("DO YOU WANT TO REALLY CREATE/REFRESH YOUR DATABASE? type 'yes' if you do.")
+    if(confirmation == 'yes'):
+        conn = psycopg2.connect(host="localhost",database="genshin",user="postgres",password="dbpass")
+        cursor = conn.cursor()
+        createTask(cursor)
+        createBanner(cursor)
+        createCharachters(cursor) #the banner table must be created before running.
+        conn.commit()
+        conn.close() 
 
 def createTask(dbcursor):
+    #creates a table that user can add/delete tasks
     dbcursor.execute("DROP TABLE IF EXISTS genshin.public.tasks ")
-    dbcursor.execute("CREATE TABLE genshin.public.tasks (task TEXT, charachter TEXT, goal TEXT, selected INTEGER )")
-    dbcursor.execute("INSERT INTO genshin.public.test VALUES (%s,%s)",(2,"random"))
-    dbcursor.execute("SELECT * FROM genshin.public.test ")
-    
+    dbcursor.execute("CREATE TABLE genshin.public.tasks (id SERIAL PRIMARY KEY , task TEXT, charachter TEXT, priority INTEGER )")
+    print("Task Table Created")
+
 def createBanner(dbcursor):
+    #creates a new table of the banners based on a csv it reads
     dbcursor.execute("DROP TABLE IF EXISTS genshin.public.banner")
     dbcursor.execute("CREATE TABLE genshin.public.banner (id SERIAL PRIMARY KEY , fivestar TEXT, fourstarone TEXT, fourstartwo TEXT, fourstarthree TEXT,datestart DATE,dateend DATE)")
     csv_data = csv.reader(open('data\\banners.csv'))
@@ -26,6 +31,7 @@ def createBanner(dbcursor):
     print("Banner Table Created")
 
 def createCharachters(dbcursor):
+    #creates a new tables of all the 4/5 star charachters based on the banner information
     dbcursor.execute("DROP TABLE IF EXISTS genshin.public.charachters")
     dbcursor.execute("CREATE TABLE genshin.public.charachters (name TEXT, star INTEGER)")
     dbcursor.execute("SELECT DISTINCT fivestar FROM genshin.public.banner")
