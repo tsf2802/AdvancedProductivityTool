@@ -1,7 +1,7 @@
 import plotly.express as px
 import psycopg2
 import plotly.figure_factory as pff
-import pandas as pd
+
 def main():
     """
     plotly help:

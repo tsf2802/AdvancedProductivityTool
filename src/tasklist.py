@@ -76,7 +76,13 @@ def setPriority(dbcursor):
         else:
             dbcursor.execute("UPDATE genshin.public.tasks SET priority = %s WHERE id = %s ",(0,uin))
 
-
+def flipPriority(dbcursor, flipid):
+    dbcursor.execute("SELECT priority from genshin.public.tasks WHERE id =%s",(flipid,))
+    gotprior = dbcursor.fetchall()
+    if gotprior[0][0] == 0:
+        dbcursor.execute("UPDATE genshin.public.tasks SET priority = %s WHERE id = %s ",(1,flipid))
+    else:
+        dbcursor.execute("UPDATE genshin.public.tasks SET priority = %s WHERE id = %s ",(0,flipid))
 
 if __name__ == "__main__":
     main()
