@@ -21,7 +21,7 @@ scrollbar_task.pack(side=tkinter.RIGHT,fill=tkinter.Y)
 listbox_task.config(yscrollcommand=scrollbar_task.set)
 scrollbar_task.config(command=listbox_task.yview)
 timelabel=Label(window,fg= '#d8d0bd', font="Arial 51",bg='#4987a6')
-timelabel.place(x=15,y=140,anchor ='sw')
+#timelabel.place(x=15,y=140,anchor ='sw')
 
 def main():
     loaditems()
