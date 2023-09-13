@@ -1,7 +1,8 @@
-# GenshinHelpTool
+# Advanced Productivity Tool
 
 ## **Personal Project Goal:**
-Create a full stack software that can help me play genshin better & improve my coding skills and knowledge.
+Create a full stack software that can help me plan tasks better & improve my coding skills and knowledge.
+The project is designed to also be compatible with the game Genshin Impact. 
 The front end is developed with tkinter, the code is written with python and the database is postgreSQL
 
 ## **Genshin Task List Background Information:**
